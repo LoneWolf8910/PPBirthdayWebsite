@@ -25,7 +25,7 @@ const cards: Card[] = [
     iconColor: "#E8A0B0",
   },
   {
-    title: "Your Unique Energy 🌸",
+    title: "Your Unique Energy 🎁",
     icon: <Sun className="w-7 h-7" />,
     iconColor: "#f4c2d7",
   },

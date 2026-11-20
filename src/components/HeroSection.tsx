@@ -8,8 +8,8 @@ import { Crown } from "./Crown";
  * floating petals, butterflies and subtle glowing particles.
  */
 export function HeroSection() {
-  const petals = Array.from({ length: 10 }).map((_, i) => {
-    const emoji = ["🌸", "🌹", "🌺", "💮"][i % 4];
+  const treats = Array.from({ length: 10 }).map((_, i) => {
+    const emoji = ["🎂", "🍬", "🎁", "❤️", "💗"][i % 5];
     const size = 14 + (i % 4) * 6;
     const left = (i * 21) % 100;
     const duration = 9 + (i % 6) * 5;
@@ -43,7 +43,7 @@ export function HeroSection() {
           className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(135deg,#FFF8ED_0%,#FDF3E3_45%,#FFF8ED_100%)]"
         />
         <SparklesHero count={18} />
-        <div className="absolute inset-0 overflow-hidden">{petals}</div>
+        <div className="absolute inset-0 overflow-hidden">{treats}</div>
         <div className="absolute top-1/5 left-1/6 w-[560px] h-[560px] bg-blush/25 rounded-full blur-[110px] -translate-x-1/2 -translate-y-1/3 animate-pulse-soft" />
         <div
           className="absolute bottom-1/6 right-1/5 w-[500px] h-[500px] bg-rose/15 rounded-full blur-[100px] translate-x-1/4 translate-y-1/4"
