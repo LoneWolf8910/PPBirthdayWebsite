@@ -1,6 +1,41 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Heart as HeartIcon } from "lucide-react";
 import React from "react";
+
+const IMG1 =
+  "/imgs/Elegant%20Indian%20Portrait%20with%20Voluminous%20Hair.webp";
+const IMG3 = "/imgs/Warm%20Indian%20Portrait%20with%20Bindi.webp";
+
+function PolaroidMini({
+  src,
+  alt,
+  rotate,
+  className,
+}: {
+  src: string;
+  alt: string;
+  rotate: number;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      whileHover={{ y: -6, rotate: 0, scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      className={`relative inline-block bg-white border border-rose/20 shadow-[0_12px_30px_rgba(113,61,75,0.16)] rounded-2xl p-2 ${className ?? ""}`}
+      style={{ transform: `rotate(${rotate}deg)` }}
+    >
+      <img
+        src={src}
+        alt={alt}
+        className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-xl"
+        loading="lazy"
+        decoding="async"
+      />
+    </motion.div>
+  );
+}
 
 /**
  * A beautiful letter inside an animated envelope.
@@ -14,7 +49,7 @@ export function BirthdayLetter() {
         <div className="absolute bottom-0 right-1/6 -translate-x-1/2 w-[500px] h-[500px] bg-champagne/35 rounded-full blur-[100px] animate-pulse-soft" style={{ animationDelay: "1s" }} />
       </div>
 
-      <div className="relative z-10 max-w-3xl mx-auto">
+      <div className="relative z-10 max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,6 +62,17 @@ export function BirthdayLetter() {
           <p className="cormorant text-rose/70 text-lg italic">
             Open the envelope to read it.
           </p>
+        </motion.div>
+
+        {/* Small photo gallery above the letter */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center mb-12"
+        >
+          <PolaroidMini src={IMG1} alt="Kriti Pandey elegant portrait" rotate={-3} />
+          <PolaroidMini src={IMG3} alt="Kriti Pandey warm portrait" rotate={3} className="-mt-2 md:mt-0" />
         </motion.div>
 
         <LetterEnvelope />
